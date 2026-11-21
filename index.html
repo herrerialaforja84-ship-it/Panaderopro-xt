@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+        <html>
+          <head>
+            <title data-id="th-modified">Web Page</title>
+            
+          <meta property="og:title" content="Web Page" data-id="th-modified" ><meta name="description" content="code" data-id="th-modified" ><meta property="og:description" content="code" data-id="th-modified" ><meta property="og:image" content="https://tiiny.host/assets/logo-purple-bg.png" data-id="th-modified" ><meta property="og:image:width" content="1501" data-id="th-modified" ><meta property="og:image:height" content="1501" data-id="th-modified" ><meta property="og:image:type" content="image/png" data-id="th-modified" ><meta property="og:url" content="https://calculosxt.tiiny.site/" data-id="th-modified" ><meta property="og:type" content="website" data-id="th-modified" ><script defer data-domain="calculosxt.tiiny.site" src="https://analytics.tiiny.net/js/plausible.js"></script><script type="text/javascript" src="https://tiiny.host/ad-script.js"></script></head>
+          <body>
+            <!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#121212">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="PanaderoPro XT">
+<title>PanaderoPro XT</title>
+<script>
+(function(){
+  const svgIcon = `<svg xmlns="http://w3.org" viewBox="0 0 512 512"><rect width="512" height="512" rx="110" fill="#f59e0b"/><text x="256" y="340" font-size="280" text-anchor="middle">🍞</text></svg>`;
+  const iconUrl = 'data:image/svg+xml;base64,' + btoa(unescape(encodeURIComponent(svgIcon)));
+  
+  const linkIcon = document.createElement('link');
+  linkIcon.rel = 'icon';
+  linkIcon.href = iconUrl;
+  document.head.appendChild(linkIcon);
+
+  const manifest = {
+    name: "PanaderoPro XT",
+    short_name: "PanaderoPro",
+    start_url: location.href,
+    display: "standalone",
+    background_color: "#121212",
+    theme_color: "#f59e0b",
+    icons: [
+      { src: iconUrl, sizes: "192x192", type: "image/svg+xml", purpose: "any maskable" },
+      { src: iconUrl, sizes: "512x512", type: "image/svg+xml", purpose: "any maskable" }
+    ]
+  };
+  const mBlob = new Blob([JSON.stringify(manifest)], {type: 'application/manifest+json'});
+  const mLink = document.createElement('link');
+  mLink.rel = 'manifest';
+  mLink.href = URL.createObjectURL(mBlob);
+  document.head.appendChild(mLink);
+
+  if ('serviceWorker' in navigator && location.protocol === 'https:') {
+    const swCode = `self.addEventListener('fetch', e => e.respondWith(fetch(e.request).catch(() => new Response(''))));`;
+    const swBlob = new Blob([swCode], {type: 'application/javascript'});
+    navigator.serviceWorker.register(URL.createObjectURL(swBlob)).catch(()=>{});
+  }
+})();
+</script>
+<style>
+  :root {
+    --bg: #121212;
+    --card: #1e1e1e;
+    --input: #2c2c2c;
+    --accent: #f59e0b;
+    --green: #10b981;
+    --red: #ef4444;
+    --blue: #3b82f6;
+    --text: #f3f4f6;
+    --muted: #9ca3af;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, sans-serif; }
+  body { background: var(--bg); color: var(--text); padding-bottom: 245px; }
+  body.calcs-min { padding-bottom: 58px; }
+
+  header { background: var(--card); padding: 10px 12px; border-bottom: 2px solid var(--accent); position: sticky; top: 0; z-index: 100; }
+  .header-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+  header h1 { color: var(--accent); font-size: 1.15rem; }
+
+  .radio-bar { display: flex; gap: 6px; align-items: center; background: #141414; padding: 6px 8px; border-radius: 8px; border: 1px solid #333; }
+  .radio-bar select { margin-bottom: 0; padding: 6px; font-size: 0.85rem; flex: 1; background: #242424; }
+  .radio-btn { padding: 6px 10px; border-radius: 6px; border: none; font-weight: bold; font-size: 0.82rem; cursor: pointer; white-space: nowrap; }
+  .radio-status { font-size: 0.72rem; color: var(--muted); margin-top: 4px; display: flex; justify-content: space-between; align-items: center; }
+
+  .tabs { display: flex; background: var(--card); border-bottom: 1px solid #333; overflow-x: auto; }
+  .tab-btn { flex: 1; padding: 10px 6px; background: none; border: none; color: var(--muted); font-weight: bold; font-size: 0.8rem; cursor: pointer; border-bottom: 3px solid transparent; white-space: nowrap; }
+  .tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); background: #252525; }
+
+  .section { display: none; padding: 12px; max-width: 720px; margin: 0 auto; }
+  .section.active { display: block; }
+
+  .box { background: var(--card); border-radius: 10px; padding: 12px; margin-bottom: 12px; border: 1px solid #333; }
+  h2 { color: var(--accent); font-size: 1rem; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 6px; }
+  h3 { color: var(--text); font-size: 0.92rem; margin: 10px 0 6px; border-bottom: 1px solid #333; padding-bottom: 4px; }
+
+  label { display: block; font-size: 0.78rem; color: var(--muted); margin-bottom: 3px; }
+  input, select { width: 100%; padding: 8px; border-radius: 6px; border: 1px solid #444; background: var(--input); color: #fff; font-size: 0.92rem; margin-bottom: 8px; }
+  input:focus, select:focus { outline: none; border-color: var(--accent); }
+
+  .row { display: flex; gap: 8px; align-items: flex-end; }
+  .row > * { flex: 1; }
+
+  button.btn { width: 100%; padding: 10px; border-radius: 6px; border: none; font-weight: bold; font-size: 0.9rem; cursor: pointer; }
+  .btn-primary { background: var(--accent); color: #000; }
+  .btn-green { background: var(--green); color: #000; }
+  .btn-red { background: var(--red); color: #fff; }
+  .btn-blue { background: var(--blue); color: #fff; }
+  .btn-dark { background: #333; color: #fff; }
+  .btn-sm { padding: 6px 10px; font-size: 0.8rem; width: auto; }
+
+  .ing-card { background: #252525; border: 1px solid #383838; border-radius: 8px; padding: 8px; margin-bottom: 8px; }
+  .ing-top { display: flex; justify-content: space-between; align-items: center; gap: 6px; margin-bottom: 6px; }
+  .ing-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; }
+  .ing-grid input { margin-bottom: 0; padding: 6px; font-size: 0.85rem; }
+  .ing-cost-tag { font-size: 0.78rem; color: var(--green); font-weight: bold; }
+
+  .summary-box { background: #10b98115; border: 1px solid var(--green); padding: 10px; border-radius: 8px; margin-top: 10px; }
+  .summary-line { display: flex; justify-content: space-between; margin-bottom: 4px; font-size: 0.88rem; }
+  .summary-total { font-size: 1.05rem; font-weight: bold; color: var(--green); border-top: 1px solid #10b98140; padding-top: 5px; margin-top: 5px; }
+
+  .timer-box { background: #0f0f0f; border: 2px solid var(--accent); border-radius: 10px; padding: 12px; text-align: center; margin-bottom: 10px; }
+  .timer-phase { font-size: 0.95rem; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px; }
+  .timer-clock { font-size: 2.8rem; font-weight: bold; font-variant-numeric: tabular-nums; margin: 2px 0; }
+  .timer-sub { font-size: 0.8rem; color: var(--muted); }
+
+  .step-item { display: flex; justify-content: space-between; align-items: center; background: #262626; padding: 7px 10px; border-radius: 6px; margin-bottom: 6px; border-left: 4px solid var(--accent); font-size: 0.85rem; }
+  .step-item.active-step { background: #f59e0b25; border-left-color: var(--green); }
+  .step-item.done-step { opacity: 0.5; text-decoration: line-through; }
+
+  .item-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid #333; font-size: 0.88rem; gap: 8px; }
+  .item-row:last-child { border-bottom: none; }
+
+  .calc-dock { position: fixed; bottom: 0; left: 0; right: 0; background: #181818; border-top: 2px solid var(--accent); z-index: 200; padding: 6px 8px; box-shadow: 0 -4px 12px rgba(0,0,0,0.6); }
+  .calc-dock-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; font-size: 0.8rem; color: var(--accent); font-weight: bold; }
+  .calcs-container { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  body.calcs-min .calcs-container { display: none; }
+  .mini-calc { background: #222; border: 1px solid #383838; border-radius: 6px; padding: 5px; }
+  .mini-screen { background: #000; color: var(--green); font-family: monospace; font-size: 1rem; text-align: right; padding: 4px 6px; border-radius: 4px; margin-bottom: 4px; overflow-x: auto; white-space: nowrap; }
+  .mini-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3px; }
+  .m-btn { padding: 6px 0; font-size: 0.82rem; font-weight: bold; border: none; border-radius: 4px; background: #303030; color: #fff; cursor: pointer; }
+  .m-btn.op { background: #404040; color: var(--accent); }
+  .m-btn.eq { background: var(--accent); color: #000; }
+  .m-btn.cl { background: var(--red); color: #fff; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-top">
+    <h1>PanaderoPro XT</h1>
+    <span style="font-size:0.75rem; color:var(--muted);">Recetas • Costos • Cronómetro • Radio UY</span>
+  </div>
+  <div class="radio-bar">
+    <select id="radio-select" onchange="changeStation()">
+      <option value="delsol">Del Sol FM 99.5</option>
+      <option value="azul">Azul FM 101.9</option>
+      <option value="sarandi">Radio Sarandí 690</option>
+      <option value="sport">Sport 890 AM</option>
+      <option value="espectador">El Espectador 810</option>
+      <option value="carve">Radio Carve 850</option>
+      <option value="montecarlo">Radio Monte Carlo 930</option>
+      <option value="oceano">Océano FM 93.9</option>
+      <option value="metropolis">Metrópolis FM 104.9</option>
+      <option value="aspen">Aspen FM 103.5 (Punta del Este)</option>
+      <option value="radiomundo">Radiomundo 1170</option>
+      <option value="universal">970 Universal</option>
+      <option value="emisoradelsur">Emisora del Sur 94.7</option>
+    </select>
+    <button class="radio-btn btn-green" id="radio-play-btn" onclick="toggleRadio()">▶ Play</button>
+    <button class="radio-btn btn-red" onclick="stopRadio()">⏹</button>
+  </div>
+  <div class="radio-status">
+    <span id="radio-status-text">Radio lista - Seleccioná y tocá Play</span>
+    <span style="color:var(--accent);">UY En Vivo</span>
+  </div>
+  <audio id="uy-audio" preload="none"></audio>
+</header>
+
+<div class="tabs">
+  <button class="tab-btn active" onclick="openTab('tab-recetas', this)">Recetas y Cronómetro</button>
+  <button class="tab-btn" onclick="openTab('tab-precios', this)">Lista Precios / Kg</button>
+  
+          
+        </div></body></html></body></html>
